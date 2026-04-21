@@ -34,10 +34,10 @@ const zones: Zone[] = [
     bgColor: "rgba(37,99,235,0.10)",
     borderColor: "rgba(37,99,235,0.35)",
     icon: "BookOpen",
-    x: 4,
-    y: 4,
+    x: 3,
+    y: 3,
     width: 44,
-    height: 54,
+    height: 56,
     description: "Тихое чтение, работа с книгами",
   },
   {
@@ -47,10 +47,10 @@ const zones: Zone[] = [
     bgColor: "rgba(5,150,105,0.10)",
     borderColor: "rgba(5,150,105,0.35)",
     icon: "Monitor",
-    x: 52,
-    y: 4,
-    width: 44,
-    height: 54,
+    x: 49,
+    y: 3,
+    width: 48,
+    height: 56,
     description: "Компьютеры, учебные места",
   },
   {
@@ -60,32 +60,31 @@ const zones: Zone[] = [
     bgColor: "rgba(217,119,6,0.10)",
     borderColor: "rgba(217,119,6,0.35)",
     icon: "Briefcase",
-    x: 4,
-    y: 62,
-    width: 92,
-    height: 30,
+    x: 3,
+    y: 61,
+    width: 94,
+    height: 34,
     description: "Стойка администратора, архив",
   },
 ];
 
 const sockets: Socket[] = [
-  { id: 1, x: 10, y: 22, zone: "reading", label: "Р-1", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
-  { id: 2, x: 22, y: 22, zone: "reading", label: "Р-2", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
-  { id: 3, x: 10, y: 40, zone: "reading", label: "Р-3", power: "220В / 10А", type: "Евро", count: 4 },
-  { id: 4, x: 22, y: 40, zone: "reading", label: "Р-4", power: "220В / 10А", type: "Евро", count: 4 },
-  { id: 5, x: 35, y: 14, zone: "reading", label: "Р-5", power: "220В / 10А", type: "Евро", count: 2 },
+  // 5 розеток под окнами (верхняя стена)
+  { id: 1, x: 15, y: 4.5, zone: "reading", label: "О-1", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 2, x: 30, y: 4.5, zone: "reading", label: "О-2", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 3, x: 50, y: 4.5, zone: "work",    label: "О-3", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 4, x: 65, y: 4.5, zone: "work",    label: "О-4", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 5, x: 80, y: 4.5, zone: "work",    label: "О-5", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
 
-  { id: 6, x: 58, y: 14, zone: "work", label: "РА-1", power: "220В / 16А", type: "Евро × 4 + USB", count: 4 },
-  { id: 7, x: 70, y: 14, zone: "work", label: "РА-2", power: "220В / 16А", type: "Евро × 4 + USB", count: 4 },
-  { id: 8, x: 82, y: 14, zone: "work", label: "РА-3", power: "220В / 16А", type: "Евро × 4 + USB", count: 4 },
-  { id: 9, x: 58, y: 36, zone: "work", label: "РА-4", power: "220В / 16А", type: "Евро × 4 + USB", count: 4 },
-  { id: 10, x: 70, y: 36, zone: "work", label: "РА-5", power: "220В / 16А", type: "Евро × 4 + USB", count: 4 },
-  { id: 11, x: 82, y: 36, zone: "work", label: "РА-6", power: "220В / 16А", type: "Евро × 4 + USB", count: 4 },
+  // 2 розетки в стене напротив входа (нижняя стена — далеко от входа, слева и справа)
+  { id: 6, x: 22, y: 95.5, zone: "reading", label: "Н-1", power: "220В / 16А", type: "Евро × 2", count: 2 },
+  { id: 7, x: 75, y: 95.5, zone: "admin",   label: "Н-2", power: "220В / 16А", type: "Евро × 2", count: 2 },
 
-  { id: 12, x: 14, y: 72, zone: "admin", label: "АД-1", power: "220В / 16А", type: "Евро × 6 + USB", count: 6 },
-  { id: 13, x: 30, y: 72, zone: "admin", label: "АД-2", power: "220В / 16А", type: "Евро × 6 + USB", count: 6 },
-  { id: 14, x: 60, y: 72, zone: "admin", label: "АД-3", power: "220В / 16А", type: "Евро × 4", count: 4 },
-  { id: 15, x: 80, y: 72, zone: "admin", label: "АД-4", power: "220В / 16А", type: "Евро × 4", count: 4 },
+  // 1 розетка справа от входа (правая сторона проёма)
+  { id: 8, x: 95.5, y: 60, zone: "admin", label: "В-П", power: "220В / 16А", type: "Евро + USB", count: 2 },
+
+  // 1 розетка слева от входа (левая сторона проёма)
+  { id: 9, x: 4.5, y: 60, zone: "reading", label: "В-Л", power: "220В / 16А", type: "Евро + USB", count: 2 },
 ];
 
 const zoneColors: Record<string, { dot: string; bg: string; text: string; border: string }> = {
@@ -122,7 +121,6 @@ export default function Index() {
           </div>
           <div className="flex gap-4 items-center">
             {Object.entries(totals).map(([key, val]) => {
-              const z = zones.find(z => z.id === key)!;
               const c = zoneColors[key];
               return (
                 <div key={key} style={{ background: c.bg, border: `1px solid ${c.border}`, borderRadius: 8, padding: "4px 10px", display: "flex", alignItems: "center", gap: 6 }}>
@@ -162,17 +160,27 @@ export default function Index() {
                 >
                   {/* Wall background */}
                   <rect x="0" y="0" width="100" height="100" rx="2" fill="#F3F4F6" />
-                  {/* Room */}
-                  <rect x="2" y="2" width="96" height="96" rx="1.5" fill="white" stroke="#D1D5DB" strokeWidth="0.5" />
+                  {/* Room walls */}
+                  <rect x="2" y="2" width="96" height="96" rx="1.5" fill="white" stroke="#D1D5DB" strokeWidth="0.8" />
 
-                  {/* Doors */}
-                  <path d="M 2 85 Q 6 85 6 89" fill="none" stroke="#94A3B8" strokeWidth="0.6" />
-                  <rect x="2" y="85" width="0.5" height="4" fill="#94A3B8" />
-                  <rect x="2" y="89" width="4" height="0.5" fill="#94A3B8" />
+                  {/* Windows — верхняя стена (5 окон) */}
+                  {[10, 24, 43, 57, 74].map((wx, i) => (
+                    <g key={i}>
+                      <rect x={wx} y="1.5" width="9" height="1.5" rx="0.3" fill="#BAE6FD" stroke="#7DD3FC" strokeWidth="0.3" />
+                      <line x1={wx + 4.5} y1="1.5" x2={wx + 4.5} y2="3" stroke="#7DD3FC" strokeWidth="0.25" />
+                    </g>
+                  ))}
+                  {/* Window label */}
+                  <text x="50" y="6.5" textAnchor="middle" style={{ fontSize: "2px", fill: "#94A3B8", fontFamily: "'Golos Text', sans-serif" }}>▲ ОКНА</text>
 
-                  <path d="M 78 2 Q 78 6 82 6" fill="none" stroke="#94A3B8" strokeWidth="0.6" />
-                  <rect x="78" y="2" width="4" height="0.5" fill="#94A3B8" />
-                  <rect x="82" y="2" width="0.5" height="4" fill="#94A3B8" />
+                  {/* Вход — нижняя стена по центру */}
+                  {/* Проём входа */}
+                  <rect x="43" y="97" width="14" height="1.5" fill="white" stroke="none" />
+                  <rect x="43" y="96.5" width="14" height="2" fill="#F3F4F6" />
+                  {/* Дверная арка */}
+                  <path d="M 43 98 Q 50 90 57 98" fill="none" stroke="#94A3B8" strokeWidth="0.6" strokeDasharray="1.5 0.7" />
+                  {/* Подпись входа */}
+                  <text x="50" y="99.5" textAnchor="middle" style={{ fontSize: "2px", fill: "#6B7280", fontWeight: 700, fontFamily: "'Golos Text', sans-serif" }}>ВХОД</text>
 
                   {/* Zone areas */}
                   {zones.map(zone => (
@@ -188,7 +196,6 @@ export default function Index() {
                         style={{ cursor: "pointer", transition: "all 0.2s" }}
                         onClick={e => { e.stopPropagation(); setActiveZone(activeZone === zone.id ? null : zone.id); setActiveSocket(null); }}
                       />
-                      {/* Zone label */}
                       <text
                         x={zone.x + zone.width / 2}
                         y={zone.y + 5}
@@ -200,29 +207,33 @@ export default function Index() {
                     </g>
                   ))}
 
-                  {/* Furniture hints */}
-                  {/* Reading tables */}
-                  <rect x="7" y="14" width="8" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="19" y="14" width="8" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="7" y="32" width="8" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="19" y="32" width="8" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  {/* Bookshelves reading */}
-                  <rect x="32" y="8" width="3" height="46" rx="0.5" fill="#BFDBFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  {/* Furniture — читальные столы (левая зона) */}
+                  <rect x="7" y="14" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="20" y="14" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="7" y="28" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="20" y="28" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="7" y="42" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="20" y="42" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  {/* Книжные стеллажи */}
+                  <rect x="33" y="8" width="2.5" height="48" rx="0.5" fill="#BFDBFE" stroke="#93C5FD" strokeWidth="0.3" />
 
-                  {/* Work computers */}
-                  {[56, 68, 80].map(cx => (
+                  {/* Furniture — рабочие компьютеры (правая зона) */}
+                  {[54, 67, 80].map(cx => (
                     <g key={cx}>
-                      <rect x={cx} y="10" width="8" height="6" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
-                      <rect x={cx} y="32" width="8" height="6" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
+                      <rect x={cx} y="12" width="9" height="5" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
+                      <rect x={cx} y="25" width="9" height="5" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
+                      <rect x={cx} y="38" width="9" height="5" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
                     </g>
                   ))}
 
-                  {/* Admin desk */}
-                  <rect x="8" y="66" width="30" height="8" rx="0.5" fill="#FDE68A" stroke="#F59E0B" strokeWidth="0.3" />
-                  <rect x="55" y="66" width="35" height="8" rx="0.5" fill="#FDE68A" stroke="#F59E0B" strokeWidth="0.3" />
+                  {/* Admin desk — нижняя зона */}
+                  <rect x="7" y="68" width="35" height="7" rx="0.5" fill="#FDE68A" stroke="#F59E0B" strokeWidth="0.3" />
+                  <rect x="58" y="68" width="33" height="7" rx="0.5" fill="#FDE68A" stroke="#F59E0B" strokeWidth="0.3" />
 
-                  {/* Dividing wall */}
-                  <rect x="49" y="2" width="1" height="58" fill="#D1D5DB" />
+                  {/* Dividing wall (вертикальная) */}
+                  <rect x="48" y="2" width="1.2" height="58" fill="#D1D5DB" />
+                  {/* Dividing wall (горизонтальная) */}
+                  <rect x="2" y="60" width="96" height="1" fill="#D1D5DB" />
 
                   {/* Sockets */}
                   {sockets.map(socket => {
@@ -319,7 +330,6 @@ export default function Index() {
                 </div>
                 {zones.map(zone => {
                   const c = zoneColors[zone.id];
-                  const count = sockets.filter(s => s.zone === zone.id).length;
                   return (
                     <div
                       key={zone.id}
