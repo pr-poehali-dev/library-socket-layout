@@ -69,22 +69,22 @@ const zones: Zone[] = [
 ];
 
 const sockets: Socket[] = [
-  // 5 розеток под окнами (верхняя стена)
-  { id: 1, x: 15, y: 4.5, zone: "reading", label: "О-1", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
-  { id: 2, x: 30, y: 4.5, zone: "reading", label: "О-2", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
-  { id: 3, x: 50, y: 4.5, zone: "work",    label: "О-3", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
-  { id: 4, x: 65, y: 4.5, zone: "work",    label: "О-4", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
-  { id: 5, x: 80, y: 4.5, zone: "work",    label: "О-5", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  // 5 розеток у правой стены (вдоль окон)
+  { id: 1, x: 95.5, y: 15, zone: "work",    label: "О-1", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 2, x: 95.5, y: 28, zone: "work",    label: "О-2", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 3, x: 95.5, y: 41, zone: "work",    label: "О-3", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 4, x: 95.5, y: 54, zone: "work",    label: "О-4", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 5, x: 95.5, y: 67, zone: "admin",   label: "О-5", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
 
-  // 2 розетки в стене напротив входа (нижняя стена — далеко от входа, слева и справа)
-  { id: 6, x: 22, y: 95.5, zone: "reading", label: "Н-1", power: "220В / 16А", type: "Евро × 2", count: 2 },
-  { id: 7, x: 75, y: 95.5, zone: "admin",   label: "Н-2", power: "220В / 16А", type: "Евро × 2", count: 2 },
+  // 2 розетки в стене напротив входа (левая стена)
+  { id: 6, x: 4.5, y: 25, zone: "reading", label: "Н-1", power: "220В / 16А", type: "Евро × 2", count: 2 },
+  { id: 7, x: 4.5, y: 55, zone: "reading", label: "Н-2", power: "220В / 16А", type: "Евро × 2", count: 2 },
 
-  // 1 розетка справа от входа (правая сторона проёма)
-  { id: 8, x: 95.5, y: 60, zone: "admin", label: "В-П", power: "220В / 16А", type: "Евро + USB", count: 2 },
+  // 1 розетка справа от входа
+  { id: 8, x: 66, y: 95.5, zone: "admin", label: "В-П", power: "220В / 16А", type: "Евро + USB", count: 2 },
 
-  // 1 розетка слева от входа (левая сторона проёма)
-  { id: 9, x: 4.5, y: 60, zone: "reading", label: "В-Л", power: "220В / 16А", type: "Евро + USB", count: 2 },
+  // 1 розетка слева от входа
+  { id: 9, x: 34, y: 95.5, zone: "reading", label: "В-Л", power: "220В / 16А", type: "Евро + USB", count: 2 },
 ];
 
 const zoneColors: Record<string, { dot: string; bg: string; text: string; border: string }> = {
@@ -163,23 +163,20 @@ export default function Index() {
                   {/* Room walls */}
                   <rect x="2" y="2" width="96" height="96" rx="1.5" fill="white" stroke="#D1D5DB" strokeWidth="0.8" />
 
-                  {/* Windows — верхняя стена (5 окон) */}
-                  {[10, 24, 43, 57, 74].map((wx, i) => (
+                  {/* Windows — правая стена (5 окон) */}
+                  {[12, 25, 38, 51, 64].map((wy, i) => (
                     <g key={i}>
-                      <rect x={wx} y="1.5" width="9" height="1.5" rx="0.3" fill="#BAE6FD" stroke="#7DD3FC" strokeWidth="0.3" />
-                      <line x1={wx + 4.5} y1="1.5" x2={wx + 4.5} y2="3" stroke="#7DD3FC" strokeWidth="0.25" />
+                      <rect x="97" y={wy} width="1.5" height="9" rx="0.3" fill="#BAE6FD" stroke="#7DD3FC" strokeWidth="0.3" />
+                      <line x1="97" y1={wy + 4.5} x2="98.5" y2={wy + 4.5} stroke="#7DD3FC" strokeWidth="0.25" />
                     </g>
                   ))}
                   {/* Window label */}
-                  <text x="50" y="6.5" textAnchor="middle" style={{ fontSize: "2px", fill: "#94A3B8", fontFamily: "'Golos Text', sans-serif" }}>▲ ОКНА</text>
+                  <text x="96" y="8" textAnchor="middle" style={{ fontSize: "1.8px", fill: "#94A3B8", fontFamily: "'Golos Text', sans-serif", writingMode: "vertical-rl" }}>ОКНА ▶</text>
 
                   {/* Вход — нижняя стена по центру */}
-                  {/* Проём входа */}
                   <rect x="43" y="97" width="14" height="1.5" fill="white" stroke="none" />
                   <rect x="43" y="96.5" width="14" height="2" fill="#F3F4F6" />
-                  {/* Дверная арка */}
                   <path d="M 43 98 Q 50 90 57 98" fill="none" stroke="#94A3B8" strokeWidth="0.6" strokeDasharray="1.5 0.7" />
-                  {/* Подпись входа */}
                   <text x="50" y="99.5" textAnchor="middle" style={{ fontSize: "2px", fill: "#6B7280", fontWeight: 700, fontFamily: "'Golos Text', sans-serif" }}>ВХОД</text>
 
                   {/* Zone areas */}
