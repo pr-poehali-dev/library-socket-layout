@@ -83,8 +83,8 @@ const sockets: Socket[] = [
   // 1 розетка справа от входа (на левой стене, ниже проёма)
   { id: 8, x: 4.5, y: 65, zone: "admin",   label: "В-П", power: "220В / 16А", type: "Евро + USB", count: 2 },
 
-  // 1 розетка слева от входа (на левой стене, выше проёма)
-  { id: 9, x: 4.5, y: 35, zone: "reading", label: "В-Л", power: "220В / 16А", type: "Евро + USB", count: 2 },
+  // 1 розетка слева от входа (на левой стене, выше проёма — у верхнего угла)
+  { id: 9, x: 4.5, y: 5, zone: "reading", label: "В-Л", power: "220В / 16А", type: "Евро + USB", count: 2 },
 ];
 
 const zoneColors: Record<string, { dot: string; bg: string; text: string; border: string }> = {
@@ -173,10 +173,10 @@ export default function Index() {
                   {/* Window label */}
                   <text x="96" y="8" textAnchor="middle" style={{ fontSize: "1.8px", fill: "#94A3B8", fontFamily: "'Golos Text', sans-serif", writingMode: "vertical-rl" }}>ОКНА ▶</text>
 
-                  {/* Вход — левая стена по центру */}
-                  <rect x="0" y="43" width="2.5" height="14" fill="#F3F4F6" stroke="none" />
-                  <path d="M 2 43 Q 10 50 2 57" fill="none" stroke="#94A3B8" strokeWidth="0.6" strokeDasharray="1.5 0.7" />
-                  <text x="1" y="52" textAnchor="middle" style={{ fontSize: "2px", fill: "#6B7280", fontWeight: 700, fontFamily: "'Golos Text', sans-serif", writingMode: "vertical-rl" }}>ВХОД</text>
+                  {/* Вход — левая стена, левая (верхняя) часть */}
+                  <rect x="0" y="8" width="2.5" height="14" fill="#F3F4F6" stroke="none" />
+                  <path d="M 2 8 Q 10 15 2 22" fill="none" stroke="#94A3B8" strokeWidth="0.6" strokeDasharray="1.5 0.7" />
+                  <text x="1" y="17" textAnchor="middle" style={{ fontSize: "2px", fill: "#6B7280", fontWeight: 700, fontFamily: "'Golos Text', sans-serif", writingMode: "vertical-rl" }}>ВХОД</text>
 
                   {/* Zone areas */}
                   {zones.map(zone => (
@@ -203,16 +203,14 @@ export default function Index() {
                     </g>
                   ))}
 
-                  {/* Furniture — читальные столы (центр) */}
-                  <rect x="26" y="16" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="40" y="16" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="54" y="16" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="26" y="30" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="40" y="30" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="54" y="30" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="26" y="44" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="40" y="44" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="54" y="44" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  {/* Furniture — 5 читальных столов в 1 ряд по центру зоны */}
+                  {[24, 34, 44, 54, 64].map((tx, i) => (
+                    <g key={i}>
+                      <rect x={tx} y="28" width="8" height="12" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                      {/* стул */}
+                      <rect x={tx + 1.5} y="41.5" width="5" height="2.5" rx="0.5" fill="#BFDBFE" stroke="#93C5FD" strokeWidth="0.2" />
+                    </g>
+                  ))}
 
                   {/* Furniture — рабочие компьютеры (правая зона у окон) */}
                   <rect x="78" y="10" width="11" height="5" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
