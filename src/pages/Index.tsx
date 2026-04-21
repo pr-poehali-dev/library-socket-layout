@@ -34,10 +34,10 @@ const zones: Zone[] = [
     bgColor: "rgba(37,99,235,0.10)",
     borderColor: "rgba(37,99,235,0.35)",
     icon: "BookOpen",
-    x: 3,
-    y: 3,
-    width: 44,
-    height: 56,
+    x: 22,
+    y: 10,
+    width: 52,
+    height: 48,
     description: "Тихое чтение, работа с книгами",
   },
   {
@@ -47,9 +47,9 @@ const zones: Zone[] = [
     bgColor: "rgba(5,150,105,0.10)",
     borderColor: "rgba(5,150,105,0.35)",
     icon: "Monitor",
-    x: 49,
+    x: 76,
     y: 3,
-    width: 48,
+    width: 21,
     height: 56,
     description: "Компьютеры, учебные места",
   },
@@ -69,16 +69,16 @@ const zones: Zone[] = [
 ];
 
 const sockets: Socket[] = [
-  // 5 розеток у правой стены (вдоль окон)
-  { id: 1, x: 95.5, y: 15, zone: "work",    label: "О-1", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
-  { id: 2, x: 95.5, y: 28, zone: "work",    label: "О-2", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
-  { id: 3, x: 95.5, y: 41, zone: "work",    label: "О-3", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
-  { id: 4, x: 95.5, y: 54, zone: "work",    label: "О-4", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
-  { id: 5, x: 95.5, y: 67, zone: "admin",   label: "О-5", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  // 5 розеток у правой стены (вдоль окон) — рабочая зона
+  { id: 1, x: 95.5, y: 12, zone: "work", label: "О-1", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 2, x: 95.5, y: 23, zone: "work", label: "О-2", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 3, x: 95.5, y: 34, zone: "work", label: "О-3", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 4, x: 95.5, y: 45, zone: "work", label: "О-4", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
+  { id: 5, x: 95.5, y: 56, zone: "work", label: "О-5", power: "220В / 16А", type: "Евро + USB-C", count: 2 },
 
   // 2 розетки в стене напротив входа (левая стена)
-  { id: 6, x: 4.5, y: 25, zone: "reading", label: "Н-1", power: "220В / 16А", type: "Евро × 2", count: 2 },
-  { id: 7, x: 4.5, y: 55, zone: "reading", label: "Н-2", power: "220В / 16А", type: "Евро × 2", count: 2 },
+  { id: 6, x: 4.5, y: 22, zone: "reading", label: "Н-1", power: "220В / 16А", type: "Евро × 2", count: 2 },
+  { id: 7, x: 4.5, y: 48, zone: "reading", label: "Н-2", power: "220В / 16А", type: "Евро × 2", count: 2 },
 
   // 1 розетка справа от входа
   { id: 8, x: 66, y: 95.5, zone: "admin", label: "В-П", power: "220В / 16А", type: "Евро + USB", count: 2 },
@@ -204,32 +204,33 @@ export default function Index() {
                     </g>
                   ))}
 
-                  {/* Furniture — читальные столы (левая зона) */}
-                  <rect x="7" y="14" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="20" y="14" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="7" y="28" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="20" y="28" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="7" y="42" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  <rect x="20" y="42" width="9" height="5" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
-                  {/* Книжные стеллажи */}
-                  <rect x="33" y="8" width="2.5" height="48" rx="0.5" fill="#BFDBFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  {/* Furniture — читальные столы (центр) */}
+                  <rect x="26" y="16" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="40" y="16" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="54" y="16" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="26" y="30" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="40" y="30" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="54" y="30" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="26" y="44" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="40" y="44" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
+                  <rect x="54" y="44" width="10" height="6" rx="0.5" fill="#DBEAFE" stroke="#93C5FD" strokeWidth="0.3" />
 
-                  {/* Furniture — рабочие компьютеры (правая зона) */}
-                  {[54, 67, 80].map(cx => (
-                    <g key={cx}>
-                      <rect x={cx} y="12" width="9" height="5" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
-                      <rect x={cx} y="25" width="9" height="5" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
-                      <rect x={cx} y="38" width="9" height="5" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
-                    </g>
-                  ))}
+                  {/* Furniture — рабочие компьютеры (правая зона у окон) */}
+                  <rect x="78" y="10" width="11" height="5" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
+                  <rect x="78" y="22" width="11" height="5" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
+                  <rect x="78" y="34" width="11" height="5" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
+                  <rect x="78" y="46" width="11" height="5" rx="0.5" fill="#D1FAE5" stroke="#6EE7B7" strokeWidth="0.3" />
+
+                  {/* Книжные стеллажи — левая стена */}
+                  <rect x="8" y="8" width="2.5" height="48" rx="0.5" fill="#BFDBFE" stroke="#93C5FD" strokeWidth="0.3" />
 
                   {/* Admin desk — нижняя зона */}
                   <rect x="7" y="68" width="35" height="7" rx="0.5" fill="#FDE68A" stroke="#F59E0B" strokeWidth="0.3" />
-                  <rect x="58" y="68" width="33" height="7" rx="0.5" fill="#FDE68A" stroke="#F59E0B" strokeWidth="0.3" />
+                  <rect x="58" y="68" width="30" height="7" rx="0.5" fill="#FDE68A" stroke="#F59E0B" strokeWidth="0.3" />
 
-                  {/* Dividing wall (вертикальная) */}
-                  <rect x="48" y="2" width="1.2" height="58" fill="#D1D5DB" />
-                  {/* Dividing wall (горизонтальная) */}
+                  {/* Dividing wall вертикальная — отделяет рабочую зону справа */}
+                  <rect x="75" y="2" width="1" height="58" fill="#D1D5DB" />
+                  {/* Dividing wall горизонтальная */}
                   <rect x="2" y="60" width="96" height="1" fill="#D1D5DB" />
 
                   {/* Sockets */}
